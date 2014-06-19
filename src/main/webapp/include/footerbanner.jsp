@@ -3,11 +3,7 @@
 	String contextPath = request.getContextPath();
 %>
 <link style="text/css" rel="stylesheet" href="<%=contextPath %>/css/footbanner.css"></link>
-<style>
-<!--
 
--->
-</style>
 <div class="wrap2">
 	<div class="gx-service">
 		<div class="float-left">

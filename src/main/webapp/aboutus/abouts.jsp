@@ -11,7 +11,6 @@
 	<link style="text/css" rel="stylesheet" href="<%=contextPath %>/css/index.css"></link>
 	<script type="text/javascript" src="<%=contextPath %>/js/jquery-1.8.2.js"></script>
 	<%@include  file="../include/common.jsp" %>
-	<script type="text/javascript" src="<%=contextPath %>/js/menu.js"></script>
 	<script type="text/javascript" src="<%=contextPath %>/js/pub-util.js"></script>
 	<script type="text/javascript" src="<%=contextPath %>/js/scrolltopcontrol.js"></script>
 	<script type="text/javascript">
@@ -119,18 +118,7 @@
 			</div>
 		</div>
 		<div class="gx-abouts-wrap2">
-			<div class="gx-abouts-service">
-				<div class="float-left">
-					<div class="gx-cypt" onclick="toRedirect(this)"></div>
-				</div>
-				<div class="float-left">
-					<div class="gx-fwyzc" onclick="toRedirect(this)"></div>
-				</div>
-				<div class="float-left">
-					<div class="gx-gywm" onclick="toRedirect(this)"></div>
-				</div>
-				<div class="clear"></div>
-			</div>
+			<jsp:include page="../include/footerbanner.jsp"></jsp:include>
 		</div>
 	</div>
 	<div id="Footer">
