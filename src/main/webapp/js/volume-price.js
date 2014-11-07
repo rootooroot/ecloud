@@ -1,8 +1,9 @@
 /*云存储*/
 var danwei = "gb";
+var volume = 0;
 // 计算、赋值、显示
 function seeVolumeMoney(){
-	var volume = 0;
+	
 	if(danwei == "gb"){
 		volume = $("#volsliders").val()/10*15;
 	}else if(danwei == "tb"){
@@ -24,20 +25,20 @@ function initVolumePrice(){
         range: "min",
 		slide:function(event,ui){ 
 		     $("#volsliders").val(ui.value);
+		     seeVolumeMoney();
 		}
 	});
 	// 显示slider的值
 	$("#volsliders").val($("#volslider").slider("option","value"));
 	
     $("#volsliders").focus(function(){
-		$(this).val("");
-//		$("#volsliders").slider("option","value", '0');
+		$(this).select();
 	});
 	
 	
 	  // 重新调整slider时计算结果清零
     $("#volslider").on("slidechange",function( event, ui ) {
-		$("#volumeTotal").text("0");
+//		$("#volumeTotal").text("0");
 		if(ui.value != 0){
 			$("#submit").attr("disabled",false);
 		}else{
@@ -52,31 +53,6 @@ function initVolumePrice(){
 			$("#submit").attr("disabled",false);
 		}
     });
-	// 初始化 产品导航的click事件
-	$("#show .group .item3 a").click(function(){
-		$(this).parent().addClass("selected");
-		$(this).parent().attr('style','margin-left:-4px;');
-		$(this).parent().children("div").attr('style','visibility:;');
-		$(this).parent().siblings().removeClass("selected");
-		$(this).parent().siblings().children("div").attr('style','visibility:hidden;');
-		if($(this).text() == '产品描述'){
-			$(this).parent().attr("style","-moz-border-radius:10px 0px 0px 10px;-webkit-border-radius:10px 0px 0px 10px;border-radius:10px 0px 0px 10px;")
-			$("#cpms").show();
-			$("#cptd").hide();
-			$("#cpjg").hide();
-			$("#show .group .item3 a[href='#cpjg']").parent().attr("style","width:90px;");
-		}else if($(this).text() == '产品特点'){
-			$("#cpms").hide();
-			$("#cptd").show();
-			$("#cpjg").hide();
-			$("#show .group .item3 a[href='#cpjg']").parent().attr("style","width:90px;");
-		}else if($(this).text() == '产品价格'){
-			$("#cpms").hide();
-			$("#cptd").hide();
-			$("#cpjg").show();
-			$(this).parent().attr("style","margin-left:-4px;width:114px;-moz-border-radius:0px 10px 10px 0px;-webkit-border-radius:0px 10px 10px 0px;border-radius:0px 10px 10px 0px;")
-		}
-	});
 }
 
 //存储单位 选择

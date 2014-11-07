@@ -52,6 +52,7 @@ function initHostPrice() {
         value:0,
 		slide:function(event,ui){ 
 		    $("#ecuCount").val(ui.value);
+		    seeHostMoney();
 		}
 	}); 
 	$('#volslider').slider({
@@ -64,6 +65,7 @@ function initHostPrice() {
         range: "min",
 		slide:function(event,ui){ 
 		     $("#volCount").val(ui.value);
+		     seeHostMoney();
 		}
 	}); 
 	$('#snapslider').slider({
@@ -75,7 +77,8 @@ function initHostPrice() {
         value:0,
         range: "min",
 		slide:function(event,ui){ 
-		     $("#snapCount").val(ui.value);
+		     $("#snapCount").val(ui.value);seeHostMoney();
+		     
 		}
 	}); 
 	$('#ipslider').slider({
@@ -88,6 +91,7 @@ function initHostPrice() {
         value:0,
 		slide:function(event,ui){ 
 		     $("#ipCount").val(ui.value);
+		     seeHostMoney();
 		}
 	}); 
 	
@@ -129,54 +133,18 @@ function initHostPrice() {
 //		$("#total").text("0");
 	});
 	
-	// 产品导航跳转
-	$("#show .group .item a").click(function(){
-		$(this).parent().addClass("selected");
-		$(this).parent().attr('style','margin-left:-4px;');
-		$(this).parent().children("div").attr('style','visibility:;');
-		$(this).parent().siblings().removeClass("selected");
-		$(this).parent().siblings().attr('style','margin-left:0px;');
-		$(this).parent().siblings().children("div").attr('style','visibility:hidden;');
-		if($(this).text() == '产品描述'){
-			$(this).parent().attr("style","-moz-border-radius:10px 0px 0px 10px;-webkit-border-radius:10px 0px 0px 10px;border-radius:10px 0px 0px 10px;")
-			$("#cpms").show();
-			$("#cptd").hide();
-			$("#cpdb").hide();
-			$("#cpjg").hide();
-		}else if($(this).text() == '产品特点'){
-			$("#cpms").hide();
-			$("#cptd").show();
-			$("#cpdb").hide();
-			$("#cpjg").hide();
-		}else if($(this).text() == '产品对比'){
-			$("#cpms").hide();
-			$("#cptd").hide();
-			$("#cpdb").show();
-			$("#cpjg").hide();
-		}else if($(this).text() == '产品价格'){
-			$("#cpms").hide();
-			$("#cptd").hide();
-			$("#cpdb").hide();
-			$("#cpjg").show();
-			$(this).parent().attr("style","margin-left:-4px;width:113px;-moz-border-radius:0px 10px 10px 0px;-webkit-border-radius:0px 10px 10px 0px;border-radius:0px 10px 10px 0px;")
-		}
-	});
 	
 	$("#ecuCount").focus(function(){
-		$(this).val("");
-//		$("#ecuslider").slider("option","value", '0');
+		$(this).select();
 	});
     $("#volCount").focus(function(){
-		$(this).val("");
-//		$("#volslider").slider("option","value", '0');
+		$(this).select();
 	});
     $("#snapCount").focus(function(){
-		$(this).val("");
-//		$("#snapslider").slider("option","value", '0');
+		$(this).select();
 	});
     $("#ipCount").focus(function(){
-		$(this).val("");
-//		$("#ipslider").slider("option","value", '0');
+		$(this).select();
 	});
 }
 

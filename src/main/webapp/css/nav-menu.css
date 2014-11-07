@@ -4,8 +4,8 @@ div.pdmenu{ float:left; position:relative; margin-top:20px; -moz-border-radius:5
 div.pdmenu div{overflow:hidden;border-bottom:1px solid #DBDBDB; color:#333; }
 div.pdmenu div:first-child{-moz-border-radius:5px 5px 0px 0px;-webkit-border-radius:5px 5px 0px 0px;border-radius:5px 5px 0px 0px;}
 div.pdmenu div.collapsed{height:40px;}
-div.pdmenu div span{display:block;height:25px;line-height:25px;overflow:hidden;padding:8px 25px 8px 22px;font-weight:bold;color:#333;background:url('../images/expanded.gif') no-repeat 10px center;cursor:pointer;border-bottom:1px solid #ddd;}
-div.pdmenu div.collapsed span{background-image:url('../images/collapsed.gif');}
+div.pdmenu div span{display:block;height:25px;line-height:25px;overflow:hidden;padding:8px 25px 8px 30px;font-weight:bold;color:#333;background:url('../images/expand.png') no-repeat 10px center;cursor:pointer;border-bottom:1px solid #ddd;}
+div.pdmenu div.collapsed span{background-image:url('../images/collapse.png');}
 div.pdmenu div a{padding:5px 10px 5px 40px;background:url('../images/host-arrow-blue.png') no-repeat  20px center #eee;display:block;border-bottom:1px solid #ddd;color:#066;}
 div.pdmenu div a.current{/* background:#ccc; */}
 div.pdmenu div a:hover{background:#ddd url('../images/linkarrow.gif') no-repeat 160px center;color:#fff;text-decoration:none;}

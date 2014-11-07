@@ -7,6 +7,7 @@
 <head>
 	<title>中联润通易云服务平台</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+	<meta content="text/html;charset=utf8"/>
 	<link style="text/css" rel="stylesheet" href="<%=contextPath %>/css/Layout.css"></link>
 	<link style="text/css" rel="stylesheet" href="<%=contextPath %>/css/jquery-ui.css"></link>
 	<link style="text/css" rel="stylesheet" href="<%=contextPath %>/css/index.css"></link>
@@ -24,6 +25,15 @@
 	<script type="text/javascript">
 		jQuery(document).ready(function() {
 			initHostPrice();
+			$("#add").click(function(){
+				seeHostMoney();
+			});
+			$("#sub").click(function(){
+				seeHostMoney();
+			});
+			$("#J_input").blur(function(){
+				seeHostMoney();
+			});
 		});
 		
 		var myMenu;
@@ -85,6 +95,7 @@
 									<li><a href="#cp-td">产品特点</a></li>
 									<li><a href="#cp-db">产品对比</a></li>
 									<li><a href="#cp-jg">产品价格</a></li>
+									<li><a href="#cp-fwxy">服务协议</a></li>
 								</ul>
 							</div>
 						</div>
@@ -199,7 +210,7 @@
 												<tr>
 													<th style="width:100px;">ECU：</th>
 													<td style="width:420px;"><div id="ecuslider" class="slider"></div></td>
-													<td style="width:110px;"><input id="ecuCount" maxlength="2" onblur="setEcuSlider(this)" type="text"/>个</td>
+													<td style="width:110px;"><input id="ecuCount" maxlength="2" onblur="setEcuSlider(this);seeHostMoney();" type="text"/>个</td>
 												</tr>
 												<tr>
 													<th></th>
@@ -214,7 +225,7 @@
 												<tr>
 													<th>扩展存储：</th>
 													<td><div id="volslider" class="slider"></div></td>
-													<td><input id="volCount"  maxlength="4" onblur="setVolSlider(this)" type="text"/>GB</td>
+													<td><input id="volCount"  maxlength="4" onblur="setVolSlider(this);seeHostMoney();" type="text"/>GB</td>
 												</tr>
 												<tr>
 													<th></th>
@@ -227,7 +238,7 @@
 												<tr>
 													<th>快照：</th>
 													<td><div id="snapslider" class="slider"></div></td>
-													<td><input id="snapCount"  maxlength="4" onblur="setSnapSlider(this)" type="text"/>GB</td>
+													<td><input id="snapCount"  maxlength="4" onblur="setSnapSlider(this);seeHostMoney();" type="text"/>GB</td>
 												</tr>
 												<tr>
 													<th></th>
@@ -240,7 +251,7 @@
 												<tr>
 													<th>IP：</th>
 													<td><div id="ipslider" class="slider"></div></td>
-													<td><input id="ipCount" maxlength="3" onblur="setIpSlider(this)" type="text"/>个</td>
+													<td><input id="ipCount" maxlength="3" onblur="setIpSlider(this);seeHostMoney();" type="text"/>个</td>
 												</tr>
 												<tr>
 													<th></th>
@@ -287,7 +298,7 @@
 													<td></td>
 	                                            </tr>
 												<tr>
-													<th><button id="submit" disabled="disabled" onclick="seeHostMoney()">查看费用</button></th><td colspan="2">总费用：<span style="font-size: 24px;color:red;" id="total">0</span> 元/月</td>
+													<th><!-- <button id="submit" disabled="disabled" onclick="seeHostMoney()">查看费用</button> -->总费用：</th><td colspan="2"><span style="font-size: 24px;color:red;" id="total">0</span> 元/月</td>
 												</tr>
 												<tr>
 													<td colspan="3" style="padding:25px;">
@@ -336,6 +347,23 @@
 													</td>
 												</tr>
 											</table>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div id="cp-fwxy" class="item-4">
+								<ul>
+									<li>
+										<div class="item-title">服务协议</div>
+										<div class="item-detail">
+											<ol>
+												<!-- 
+												<li><a href="#" onclick="upload1();">云主机服务协议模板-中联润通</a></li>
+												<li><a href="#" onclick="upload2()">中联润通云业务SLA承诺</a></li> 
+												-->
+												<li><a href="<%=contextPath%>/docs?filename=云主机服务协议模板-中联润通.docx">云主机服务协议模板-中联润通</a></li>
+												<li><a href="<%=contextPath%>/docs?filename=中联润通云业务SLA承诺.docx">中联润通云业务SLA承诺</a></li>
+											</ol>
 										</div>
 									</li>
 								</ul>

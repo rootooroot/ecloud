@@ -156,7 +156,7 @@
 												<tr>
 													<th>存储：</th>
 													<td><div id="volslider" class="slider"></div></td>
-													<td><input id="volsliders" maxlength="4" onblur="setVolSlider(this)" type="text"/><span id="volumeSlider">GB</span></td>
+													<td><input id="volsliders" maxlength="4" onblur="setVolSlider(this);seeVolumeMoney();" type="text"/><span id="volumeSlider">GB</span></td>
 												</tr>
 												<tr>
 													<th></th>
@@ -167,7 +167,7 @@
 													<td></td>
 												</tr>
 												<tr>
-													<th><button id="submit" disabled="disabled" onclick="seeVolumeMoney()">查看费用</button></th><td colspan="2">总费用：<span style="font-size: 24px;color:red;" id="volumeTotal">0</span> 元/月</td>
+													<th><!-- <button id="submit" disabled="disabled" onclick="seeVolumeMoney()">查看费用</button> -->总费用：</th><td colspan="2"><span style="font-size: 24px;color:red;" id="volumeTotal">0</span> 元/月</td>
 												</tr>
 											</table>
 										</div>

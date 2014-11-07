@@ -6,6 +6,7 @@
 <head>
 	<title>中联润通易云服务平台</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+	<meta content="text/html;charset=utf8"/>
 	<link style="text/css" rel="stylesheet" href="<%=contextPath %>/css/Layout.css"></link>
 	<link style="text/css" rel="stylesheet" href="<%=contextPath %>/css/jquery-ui.css"></link>
 	<link style="text/css" rel="stylesheet" href="<%=contextPath %>/css/index.css"></link>
@@ -20,9 +21,19 @@
 	<script type="text/javascript" src="<%=contextPath %>/js/addition-subtraction.js"></script>
 	<script type="text/javascript" src="<%=contextPath %>/js/exclusive-price.js"></script>	
 	<script type="text/javascript" src="<%=contextPath %>/js/scrolltopcontrol.js"></script>	
+	<script type="text/javascript" src="<%=contextPath %>/js/ui/jquery.ui.position.js"></script>	
 	<script type="text/javascript">
 		jQuery(document).ready(function() {
 	        initExclusivePrice();
+	        $("#add").click(function(){
+	        	seeExclusiveMoney();
+	        });
+	        $("#sub").click(function(){
+	        	seeExclusiveMoney();
+	        });
+	        $("#J_input").blur(function(){
+	        	seeExclusiveMoney();
+			});
 		});
 		
 		var myMenu;
@@ -30,6 +41,7 @@
 			myMenu = new SDMenu("my_menu");
 			myMenu.init();
 		};
+		
 	</script>
 
 </head>
@@ -86,6 +98,7 @@
 									<li><a href="#cp-td">产品特点</a></li>
 									<li><a href="#cp-db">产品对比</a></li>
 									<li><a href="#cp-jg">产品价格</a></li>
+									<li><a href="#cp-fwxy">服务协议</a></li>
 								</ul>
 							</div>
 						</div>
@@ -189,7 +202,7 @@
 												<tr>
 													<th style="width:100px;">ECU：</th>
 													<td style="width:420px;">
-	                                                    <select id="ecus">
+	                                                    <select id="ecus" onchange="seeExclusiveMoney();">
 	                                                        <option value="0">-- 请选择 --</option>
 	                                                        <option value="16">16个ECU</option>
 	                                                        <option value="32">32个ECU</option>
@@ -209,7 +222,7 @@
 												<tr>
 													<th>扩展存储：</th>
 													<td><div id="vol" class="slider"></div></td>
-													<td><input id="vols" maxlength="4" onblur="setVolSlider(this)" type="text"/>GB</td>
+													<td><input id="vols" autofocus="autofocus" maxlength="4" onblur="setVolSlider(this);seeExclusiveMoney();" type="text"/>GB</td>
 												</tr>
 												<tr>
 													<th></th>
@@ -222,7 +235,7 @@
 												<tr>
 													<th>快照：</th>
 													<td><div id="snap" class="slider"></div></td>
-													<td><input id="snaps" maxlength="4" onblur="setSnapSlider(this)" type="text"/>GB</td>
+													<td><input id="snaps" maxlength="4" onblur="setSnapSlider(this);seeExclusiveMoney();" type="text"/>GB</td>
 												</tr>
 												<tr>
 													<th></th>
@@ -235,7 +248,7 @@
 												<tr>
 													<th>带宽：</th>
 													<td>
-	                                                    <select id="blanks">
+	                                                    <select id="blanks" onchange="seeExclusiveMoney()">
 	                                                        <option value="0">-- 请选择 --</option>
 	                                                        <option value="5">5 Mbps</option>
 	                                                        <option value="10">10 Mbps</option>
@@ -248,7 +261,7 @@
 	                                            <tr>
 													<th>IP：</th>
 													<td><div id="ip" class="slider"></div></td>
-													<td><input id="ips"  maxlength="4" onblur="setIpSlider(this)"  type="text"/>个</td>
+													<td><input id="ips"  maxlength="4" onblur="setIpSlider(this);seeExclusiveMoney();"  type="text"/>个</td>
 												</tr>
 												<tr>
 													<th></th>
@@ -287,7 +300,7 @@
 													<td></td>
 	                                            </tr>
 	                                            <tr>
-													<th><button id="submit" disabled="disabled" onclick="seeExclusiveMoney()">查看费用</button></th><td colspan="2">总费用：<span style="font-size: 24px;color:red;" id="exclusiveTotal">0</span> 元/月</td>
+													<th><!-- <button id="submit" disabled="disabled" onclick="seeExclusiveMoney()">查看费用</button> -->总费用：</th><td colspan="2"><span style="font-size: 24px;color:red;" id="exclusiveTotal">0</span> 元/月</td>
 												</tr>
 												<tr>
 													<td colspan="3" style="padding:25px;">
@@ -336,6 +349,23 @@
 													</td>
 												</tr>
 											</table>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div id="cp-fwxy" class="item-4">
+								<ul>
+									<li>
+										<div class="item-title">服务协议</div>
+										<div class="item-detail">
+											<ol>
+												<!-- 
+												<li><a href="#" onclick="upload1();">云主机服务协议模板-中联润通</a></li>
+												<li><a href="#" onclick="upload2()">中联润通云业务SLA承诺</a></li> 
+												-->
+												<li><a href="<%=contextPath%>/docs?filename=云主机服务协议模板-中联润通.docx">云主机服务协议模板-中联润通</a></li>
+												<li><a href="<%=contextPath%>/docs?filename=中联润通云业务SLA承诺.docx">中联润通云业务SLA承诺</a></li>
+											</ol>
 										</div>
 									</li>
 								</ul>

@@ -62,16 +62,19 @@ function validateForm() {
 				$("#i_volumeTextError").css({
 					"color" : "#FF0033"
 				});
+				$("#j_volume").focus();
 			}
 		} else {
 			$("#i_pageBigTextError").css({
 				"color" : "#FF0033"
 			});
+			$("#j_pagebig").focus();
 		}
 	} else {
 		$("#i_pv").css({
 			"color" : "#FF0033"
 		});
+		$("#j_pv").focus();
 	}
 }
 function submit() {

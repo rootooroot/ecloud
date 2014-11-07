@@ -21,18 +21,22 @@ function getExclusiveValue(){
 	J_input = $("#J_input").val();
 }
 function seeExclusiveMoney(){
-	getExclusiveValue();
-	sum = 0;
-	sum = sum + ecu/16*6400 + vol/10*15 + snap/10*15 + blank/5*500 + ip*200;
-	if(elbFlag){
-		sum = sum + 800;
-		elbFlagString = "有";
+	if($("#ecus").val() != 0 && $("#blanks").val() != 0){
+		getExclusiveValue();
+		sum = 0;
+		sum = sum + ecu/16*6400 + vol/10*15 + snap/10*15 + blank/5*500 + ip*200;
+		if(elbFlag){
+			sum = sum + 800;
+			elbFlagString = "有";
+		}
+		if(J_input >0){
+			sum = sum + J_input*10;
+		}
+		$("#exclusiveTotal").html(sum+"");/*"ECU:"+ ecuSilder + "个 ，存储："+volSilder +"GB，ip:"+ipSilder+"个，"+(ha=="true")?"选择主机保护":"未选择主机保护 ，"+(elb=="true")?"选择负载均衡":"未选择负载均衡 ，"+"主机"+J_input+"台  总费用："+*/
+		$("#exclusiveTotal").attr("title","ECU："+ecu+"个；扩展存储："+vol+"GB；快照："+snap+"GB；带宽："+blank+"Mbps；IP："+ip+"个；负载均衡："+elbFlagString+"；主机保护："+J_input+"个。");//"ECU:"+ ecuSilder + "个 ，存储："+volSilder +"GB，ip:"+ipSilder+"个，"+(ha=="true")?"09 90 E9 62 3B 4E 3A 67 DD 4F A4 62":"未选择主机保护 ，"+(elb=="true")?"选择负载均衡":"未选择负载均衡 ，"+"主机"+J_input+"台。"+*/
+	}else{
+		$("#exclusiveTotal").html("0");
 	}
-	if(J_input >0){
-		sum = sum + J_input*10;
-	}
-	$("#exclusiveTotal").html(sum+"");/*"ECU:"+ ecuSilder + "个 ，存储："+volSilder +"GB，ip:"+ipSilder+"个，"+(ha=="true")?"选择主机保护":"未选择主机保护 ，"+(elb=="true")?"选择负载均衡":"未选择负载均衡 ，"+"主机"+J_input+"台  总费用："+*/
-	$("#exclusiveTotal").attr("title","ECU："+ecu+"个；扩展存储："+vol+"GB；快照："+snap+"GB；带宽："+blank+"Mbps；IP："+ip+"个；负载均衡："+elbFlagString+"；主机保护："+J_input+"个。");//"ECU:"+ ecuSilder + "个 ，存储："+volSilder +"GB，ip:"+ipSilder+"个，"+(ha=="true")?"09 90 E9 62 3B 4E 3A 67 DD 4F A4 62":"未选择主机保护 ，"+(elb=="true")?"选择负载均衡":"未选择负载均衡 ，"+"主机"+J_input+"台。"+*/
 }
 function initExclusivePrice(){
 	// 初始化slider
@@ -46,6 +50,7 @@ function initExclusivePrice(){
         range: "min",
 		slide:function(event,ui){ 
 		     $("#vols").val(ui.value);
+		     seeExclusiveMoney();
 		}
 	}); 
 	$('#snap').slider({
@@ -58,6 +63,7 @@ function initExclusivePrice(){
 		range: "min",
 		slide:function(event,ui){ 
 			$("#snaps").val(ui.value);
+			seeExclusiveMoney();
 		}
 	}); 
 	$('#ip').slider({
@@ -70,6 +76,8 @@ function initExclusivePrice(){
         value:0,
 		slide:function(event,ui){ 
 		     $("#ips").val(ui.value);
+		     seeExclusiveMoney();
+		     
 		}
 	}); 
 	// 为slider后的文本框赋值
@@ -103,48 +111,13 @@ function initExclusivePrice(){
 	});
 	
     $("#vols").focus(function(){
-		$(this).val("");
-//		$("#vol").slider("option","value", '0');
+        $(this).select();
 	});
     $("#snaps").focus(function(){
-    	$(this).val("");
-//		$("#vol").slider("option","value", '0');
+    	$(this).select();
     });
     $("#ips").focus(function(){
-		$(this).val("");
-//		$("#ip").slider("option","value", '0');
-	});
-    // 产品导航跳转
-	$("#show .group .item2 a").click(function(){
-		$(this).parent().addClass("selected");
-		$(this).parent().attr('style','margin-left:-4px;');
-		$(this).parent().children("div").attr('style','visibility:;');
-		$(this).parent().siblings().removeClass("selected");
-		$(this).parent().siblings().attr('style','margin-left:0px;');
-		$(this).parent().siblings().children("div").attr('style','visibility:hidden;');
-		if($(this).text() == '产品描述'){
-			$(this).parent().attr("style","-moz-border-radius:10px 0px 0px 10px;-webkit-border-radius:10px 0px 0px 10px;border-radius:10px 0px 0px 10px;")
-			$("#cpms").show();
-			$("#cptd").hide();
-			$("#cpdb").hide();
-			$("#cpjg").hide();
-		}else if($(this).text() == '产品特点'){
-			$("#cpms").hide();
-			$("#cptd").show();
-			$("#cpdb").hide();
-			$("#cpjg").hide();
-		}else if($(this).text() == '产品对比'){
-			$("#cpms").hide();
-			$("#cptd").hide();
-			$("#cpdb").show();
-			$("#cpjg").hide();
-		}else if($(this).text() == '产品价格'){
-			$("#cpms").hide();
-			$("#cptd").hide();
-			$("#cpdb").hide();
-			$("#cpjg").show();
-			$(this).parent().attr("style","margin-left:-4px;width:113px;-moz-border-radius:0px 10px 10px 0px;-webkit-border-radius:0px 10px 10px 0px;border-radius:0px 10px 10px 0px;")
-		}
+    	$(this).select();
 	});
 }
 
@@ -153,15 +126,16 @@ function setVolSlider(obj) {
 	var min = $("#vol").slider("option","min");
 	var max = $("#vol").slider("option","max");
 	var e = obj.value;
-	if(obj.value == '')
+	if(obj.value == ''){
 		obj.value = '0';
+	}
 	if(!reg.test(e)){
-		$("#vol").slider("option","value", '0');
-		obj.value = '0';
+		$("#vol").slider("option","value", 0);
+		obj.value = 0;
 	}else{
 		if(e<min){
-			$("#vol").slider("option","value", '0');
-			obj.value = '0';
+			$("#vol").slider("option","value", 0);
+			obj.value = 0;
 		}else if(e>max){
 			$("#vol").slider("option","value", max);
 			obj.value = max;
@@ -179,11 +153,11 @@ function setSnapSlider(obj) {
 		obj.value = '0';
 	if(!reg.test(e)){
 		$("#snap").slider("option","value", '0');
-		obj.value = '0';
+		obj.value = 0;
 	}else{
 		if(e<min){
 			$("#snap").slider("option","value", '0');
-			obj.value = '0';
+			obj.value = e;
 		}else if(e>max){
 			$("#snap").slider("option","value", max);
 			obj.value = max;
@@ -202,11 +176,11 @@ function setIpSlider(obj) {
 		obj.value = '0';
 	if(!reg.test(e)){
 		$("#ip").slider("option","value", '0');
-		obj.value = '0';
+		obj.value = 0;
 	}else{
 		if(e<min){
 			$("#ip").slider("option","value", '0');
-			obj.value = '0';
+			obj.value = e;
 		}else if(e>max){
 			$("#ip").slider("option","value", max);
 			obj.value = max;
