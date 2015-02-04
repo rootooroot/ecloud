@@ -133,7 +133,7 @@
 		</dependency>
 		
 		<!-- JSR 303 with Hibernate Validator -->
-		<dependency>
+<!-- 		<dependency>
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
 			<version>1.0.0.GA</version>
@@ -142,7 +142,7 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<version>4.1.0.Final</version>
-		</dependency>
+		</dependency> -->
 		
 		<!-- JSTL -->
 		<dependency>

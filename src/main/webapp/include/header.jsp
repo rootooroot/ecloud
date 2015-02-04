@@ -1,136 +1,204 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
-<%
-	String contextPath = request.getContextPath();
-%>
-<link style="text/css" rel="stylesheet" href="<%=contextPath %>/css/com.css"></link>
-<%-- <script type="text/javascript" src="<%=contextPath %>/js/jquery-1.8.2.js"></script> --%>
-
-<script type="text/javascript" src="<%=contextPath %>/js/seed-min.js" data-config="{combine:true}"></script>
-<script type="text/javascript" src="<%=contextPath %>/js/header/dom/base-min.js"></script>
-<script type="text/javascript" src="<%=contextPath %>/js/header/event/base-min.js"></script>
-<script type="text/javascript" src="<%=contextPath %>/js/header/event/dom/base-min.js"></script>
-<script type="text/javascript" src="<%=contextPath %>/js/header/event/dom/focusin-min.js"></script>
-<script type="text/javascript" src="<%=contextPath %>/js/header/event/dom/shake-min.js"></script>
-<script type="text/javascript" src="<%=contextPath %>/js/header/anim/base-min.js"></script>
-<script type="text/javascript" src="<%=contextPath %>/js/header/anim/timer-min.js"></script>
-<script type="text/javascript" src="<%=contextPath %>/js/header/anim/transition-min.js"></script>
-<script type="text/javascript" src="<%=contextPath %>/js/header/anim-min.js"></script>
-<script type="text/javascript" src="<%=contextPath %>/js/header/promise-min.js"></script>
-<script type="text/javascript" src="<%=contextPath %>/js/header/node-min.js"></script>
-
-<script src="http://g.tbcdn.cn/kissy/k/1.4.3/seed-min.js" data-config="{combine:true}"></script>
-<script type="text/javascript" src="<%=contextPath %>/js/header/index-kissy.js"></script>
-<script type="text/javascript" src="<%=contextPath %>/js/header/header.js"></script>
-
-<header>
-	<div id="J_Headerwrap" class="header-wrap" data-spm="2">
-		<div class="header-inner y-row">
-			<div class="y-span11 ">
-				<a id="J_logo" class="logo" data-ga="导航.主体.易云" href="http://www.china-ops.com"> <span class="icon-logo logo"></span></a>
-				<nav id="J_Nav">
-					<ul id="J_Menu">
-						<li class="nav-1" data-menu="sub_menu_1" data-case="one">
-							<h2><a href="<%=contextPath %>/index.jsp">首页</a></h2>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/navMenu.css'/>" />
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+//		$(".navigation-right").click(function(){
+			$(".navigation-up").animate({marginLeft:"400px"});
+//		});
+		var qcloud={};
+		$('[_t_nav]').hover(function(){
+			var _nav = $(this).attr('_t_nav');
+			clearTimeout( qcloud[ _nav + '_timer' ] );
+			qcloud[ _nav + '_timer' ] = setTimeout(function(){
+			$('[_t_nav]').each(function(){
+			$(this)[ _nav == $(this).attr('_t_nav') ? 'addClass':'removeClass' ]('nav-up-selected');
+			});
+			$('#'+_nav).stop(true,true).slideDown(200);
+			}, 150);
+		},function(){
+			var _nav = $(this).attr('_t_nav');
+			clearTimeout( qcloud[ _nav + '_timer' ] );
+			qcloud[ _nav + '_timer' ] = setTimeout(function(){
+			$('[_t_nav]').removeClass('nav-up-selected');
+			$('#'+_nav).stop(true,true).slideUp(200);
+			}, 150);
+		});
+	});
+</script>
+<div class="head-v3">
+	<div class="head-menu" style="overflow: hidden;min-width:1000px;width:1100px;">
+		<div class="navigation-up" style="z-index:9;margin-left: 2000px;">
+			<div class="navigation-inner">
+				<div class="navigation-v3">
+					<ul>
+						<li class="nav-up-selected-inpage" _t_nav="home">
+							<h2>
+								<a href="http://www.qcloud.com">首页</a>
+							</h2>
 						</li>
-						<li class="nav-2" data-menu="sub_menu_2" data-case="one">
-							<h2>产品服务</h2>
+						<li class="" _t_nav="product">
+							<h2>
+								<a href="http://www.qcloud.com/product/product.php">云产品</a>
+							</h2>
 						</li>
-						<li class="nav-3" data-menu="sub_menu_3" data-case="one">
-							<h2>解决方案</h2>
+						<li class="" _t_nav="wechat">
+							<h2>
+								<a href="http://weixin.qcloud.com/market">微信建站</a>
+							</h2>
 						</li>
-						<li class="nav-4" data-menu="sub_menu_4" data-case="three">
-							<h2>帮助支持</h2>
+						<li class="" _t_nav="solution">
+							<h2>
+								<a href="http://game.qcloud.com/">行业解决方案</a>
+							</h2>
 						</li>
-						<li class="nav-5" data-menu="sub_menu_5" data-case="two">
-							<h2>关于我们</h2>
+						<li class="" _t_nav="cooperate">
+							<h2>
+								<a href="http://www.qcloud.com/agent/agent.php">合作伙伴</a>
+							</h2>
+						</li>
+						<li _t_nav="support">
+							<h2>
+								<a href="http://www.qcloud.com/wiki.php">帮助与支持</a>
+							</h2>
 						</li>
 					</ul>
-				</nav>
+				</div>
 			</div>
 		</div>
+		<div class="navigation-down">
+			<div id="product" class="nav-down-menu menu-1" style="display: none;" _t_nav="product">
+				<div class="navigation-down-inner">
+					<dl style="margin-left: 100px;">
+						<dt>计算机与网络</dt>
+						<dd>
+							<a hotrep="hp.header.product.compute1" href="http://www.qcloud.com/product/product.php?item=cvm">云服务器</a>
+						</dd>
+						<dd>
+							<a hotrep="hp.header.product.compute2" href="http://www.qcloud.com/product/product.php?item=cee">弹性Web引擎</a>
+						</dd>
+						<dd>
+							<a hotrep="hp.header.product.compute3" href="http://www.qcloud.com/product/product.php?item=balance">负载均衡</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt>存储与CDN</dt>
+						<dd>
+							<a hotrep="hp.header.product.storage1" href="http://www.qcloud.com/product/product.php?item=cdb">云数据库</a>
+						</dd>
+						<dd>
+							<a hotrep="hp.header.product.storage2" href="http://www.qcloud.com/product/product.php?item=cmem">NoSQL高速存储</a>
+						</dd>
+						<dd>
+							<a hotrep="hp.header.product.storage4" href="http://www.qcloud.com/product/product.php?item=cos">对象存储服务(beta)</a>
+						</dd>
+						<dd>
+							<a hotrep="hp.header.product.storage3" href="http://www.qcloud.com/product/product.php?item=cdn">CDN</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt>监控与安全</dt>
+						<dd>
+							<a hotrep="hp.header.product.monitoring1" href="http://www.qcloud.com/product/product.php?item=monitor">云监控</a>
+						</dd>
+						<dd>
+							<a hotrep="hp.header.product.monitoring2" href="http://www.qcloud.com/product/product.php?item=safe">云安全</a>
+						</dd>
+						<dd>
+							<a hotrep="hp.header.product.monitoring3" href="http://www.qcloud.com/product/product.php?item=cat">云拨测</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt>数据分析</dt>
+						<dd>
+							<a hotrep="hp.header.product.analysis1" href="http://mta.qq.com/">腾讯云分析</a>
+						</dd>
+						<dd>
+							<a hotrep="hp.header.product.analysis2" href="http://www.qcloud.com/product/product.php?item=keyfactor">关键因子</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt>开发者工具</dt>
+						<dd>
+							<a hotrep="hp.header.product.devtool1" href="http://www.qcloud.com/product/product.php?item=mna">移动加速</a>
+						</dd>
+						<dd>
+							<a hotrep="hp.header.product.devtool2" href="http://www.qcloud.com/product/product.php?item=appup">应用加固</a>
+						</dd>
+						<dd>
+							<a hotrep="hp.header.product.devtool3" href="http://www.qcloud.com/product/product.php?item=dove">信鸽推送</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt>开发者服务</dt>
+						<dd>
+							<a hotrep="hp.header.product.service1" href="http://www.qcloud.com/special/security.php">安全认证服务</a>
+						</dd>
+						<dd>
+							<a hotrep="hp.header.product.service2" href="http://beian.qcloud.com/">域名备案</a>
+						</dd>
+					</dl>
+				</div>
+			</div>
+			<div id="solution" class="nav-down-menu menu-3 menu-1" style="display: none;" _t_nav="solution">
+				<div class="navigation-down-inner">
+					<dl style="margin-left: 380px;">
+						<dd>
+							<a class="link" hotrep="hp.header.solution.1" href="http://weixin.qcloud.com/">微信</a>
+						</dd>
+					</dl>
+					<dl>
+						<dd>
+							<a class="link" hotrep="hp.header.solution.2" href="http://game.qcloud.com/">游戏</a>
+						</dd>
+					</dl>
+					<dl>
+						<dd>
+							<a class="link" hotrep="hp.header.solution.3" href="http://m.qcloud.com/">移动应用</a>
+						</dd>
+					</dl>
+				</div>
+			</div>
+			<div id="support" class="nav-down-menu menu-3 menu-1" style="display: none;" _t_nav="support">
+				<div class="navigation-down-inner">
+					<dl style="margin-left: 610px;">
+						<dd>
+							<a class="link" hotrep="hp.header.support.1" href="http://www.qcloud.com/wiki.php">资料库</a>
+						</dd>
+					</dl>
+					<dl>
+						<dd>
+							<a class="link" hotrep="hp.header.support.2" href="http://bbs.qcloud.com/forum.php">论坛</a>
+						</dd>
+					</dl>
+					<dl>
+						<dd>
+							<a class="link" hotrep="hp.header.support.3" href="http://www.qcloud.com/fuchi2014.php">亿元扶持</a>
+						</dd>
+					</dl>
+				</div>
+			</div>
+			<div id="cooperate" class="nav-down-menu menu-3 menu-1" style="display: none;" _t_nav="cooperate">
+				<div class="navigation-down-inner">
+					<dl style="margin-left: 480px;">
+						<dd>
+							<a hotrep="hp.header.partner.1" href="http://www.qcloud.com/agent/agent.php">代理商</a>
+						</dd>
+					</dl>
+					<dl>
+						<dd>
+							<a hotrep="hp.header.partner.2" href="http://proxy.weixin.qcloud.com/apply/apply.php">微信服务商</a>
+						</dd>
+					</dl>
+					<dl>
+						<dd>
+							<a hotrep="hp.header.partner.3" href="http://www.qcloud.com/special/venture.php?from=qcloud.banner">创投机构</a>
+						</dd>
+					</dl>
+				</div>
+			</div>
 	</div>
-	<div id="J_subMenus" class="sub-menus" style="top: 99px;" data-spm="201">
-		<div id="sub_menu_1" class="sub-menu"  style="background:transparent;"><dl></dl></div>
-		<div id="sub_menu_2" class="sub-menu">
-			<dl class="first" style="margin-left: 95.5px;">
-				<dt>计算即服务<br>CaaS</dt>
-				<dd>
-					<a data-ga="导航.产品服务.云主机" href="<%=contextPath%>/product/caas/yunzhuji/">云主机</a>
-				</dd>
-				<dd>
-					<a data-ga="导航.产品服务.专享云" href="<%=contextPath%>/product/caas/zhuanxiangyun/">专享云</a>
-				</dd>
-			</dl>
-			<dl>
-				<dt>存储即服务<br>STaaS</dt>
-				<dd>
-					<a data-ga="导航.产品服务.云存储" href="<%=contextPath%>/product/staas/yuncunchu/">云存储</a>
-				</dd>
-			</dl>
-			<dl>
-				<dt>桌面即服务<br>DaaS</dt>
-				<dd>
-					<a data-ga="导航.产品服务.桌面云" href="<%=contextPath%>/product/daas/yunzhuomian/">桌面云</a>
-				</dd>
-			</dl>
-			<dl>
-				<dt>安全即服务<br>SECaaS</dt>
-				<dd>
-					<a data-ga="导航.产品服务.安全云" href="<%=contextPath%>/product/secaas/safecloud/">安全云</a>
-				</dd>
-			</dl>
-			<dl>
-				<dt>资讯即服务<br>INFaaS</dt>
-				   <dd>
-					   <a data-ga="导航.产品服务.云资讯" href="<%=contextPath%>/product/infaas/yunzixun/">云资讯</a>
-				   </dd>
-			</dl>
-		</div>
-		<div id="sub_menu_3" class="sub-menu">
-			<dl class="first" style="margin-left: 187.5px;">
-				<dd>
-					<a data-ga="导航.解决方案.政府客户" href="<%=contextPath%>/solution/zf.jsp">政府客户</a>
-				</dd>
-			</dl>
-			<dl>
-				<dd>
-					<a data-ga="导航.解决方案.大型软件企业" href="<%=contextPath%>/solution/dxrj.jsp">大型软件企业</a>
-				</dd>
-			</dl>
-			<dl>
-				<dd>
-					<a data-ga="导航.解决方案.快速成长企业" href="<%=contextPath%>/solution/kscz.jsp">快速成长企业</a>
-				</dd>
-			</dl>
-			<dl>
-				<dd>
-					<a data-ga="导航.解决方案.快速成长互联网公司" href="<%=contextPath%>/solution/ksczhlw.jsp">快速成长互联网公司</a>
-				</dd>
-			</dl>
-		</div>
-		<div id="sub_menu_4" class="sub-menu">
-			<dl class="first" style="margin-left: 263.5px;">
-				<dd>
-					<a data-ga="导航.帮助支持.选择理由" href="<%=contextPath%>/help/select-reson.jsp">选择理由</a>
-				</dd>
-			</dl>
-			   <dl>
-				<dd>
-					<a data-ga="导航.帮助支持.常见问题" href="<%=contextPath %>/help/faq.jsp">常见问题</a>
-				</dd>
-			</dl>
-		</div>
-		<div id="sub_menu_5" class="sub-menu">
-			<dl class="first" style="margin-left: 663.5px;">
-				<dd>
-					<a data-ga="导航.关于我们.了解易云" href="<%=contextPath %>/aboutus/detail.jsp">了解易云</a>
-				</dd>
-			</dl>
-			<dl>
-				<dd>
-					<a data-ga="导航.关于我们.联系我们" href="<%=contextPath %>/aboutus/abouts.jsp">联系我们</a>
-				</dd>
-			</dl>
-		</div>
 	</div>
-</header>
+	<div class="navigation-right"></div>
+	<div style="clear: both;"></div>
+</div>

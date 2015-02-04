@@ -1,0 +1,8 @@
+body { font-family:Verdana; font-size:14px; margin:0;}
+
+#container {margin:0 auto; width:1349px;}
+#loginer { height:20px; background:#1de; margin-bottom:2px;}
+#header { height:420px; background:#6cf; margin-bottom:3px;}
+#menu { height:30px; background:#09c; margin-bottom:5px;}
+#mainContent { height:500px; background:#cff; margin-bottom:5px;}
+#footer { height:60px; background:#6cf;}
