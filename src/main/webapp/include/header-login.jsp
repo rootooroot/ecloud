@@ -4,12 +4,6 @@
 <div class="header">
 	<div class="layout">
 		<div class="fleft">
-			<div class="mod logo-firefox" trace-key="head_logo">
-				<p class="top">
-					<a title="火狐官网" href="http://www.firefox.com.cn/?igfox"> 火狐官网 </a>
-				</p>
-				<p class="bottom"></p>
-			</div>
 			<div class="mod weather-sign-calendar">
 				<div class="btn-weather-pop moz-dropdown">
 					<a title="点击查看详情"> <span>2月4日 </span> <span _hover-ignore="1">周三</span>

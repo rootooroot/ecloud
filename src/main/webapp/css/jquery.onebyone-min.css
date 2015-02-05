@@ -15,8 +15,8 @@
 #onebyone_slider img.ob1_img_device3{position:absolute;top:325px;left:780px;z-index:40}
 .buttonArea{float:left;left:50%;position:relative;top:100%;margin-top:-30px;/*margin-top:32px;*/}
 .buttonCon{float:left;left:-50%;position:relative}
-.buttonCon .theButton{display:inline-block;color:#b22222;width:12px;height:22px;background:#222;vertical-align:bottom;/* background:url(../images/circlebutton.png) no-repeat; */text-indent:-9999px;border:0;margin-right:5px; transition:all .5s;-moz-transition:all .5s;-webkit-transition:all .5s;-o-transition:all .5s }
-.buttonArea a.active{/* background-position:0 -22px */height:30px;background: #eee;}
+.buttonCon .theButton{display:inline-block;color:#b22222;width:12px;height:12px;background:#222;vertical-align:bottom;/* background:url(../images/circlebutton.png) no-repeat; */text-indent:-9999px;border:0;margin-right:5px; /* transition:all .5s;-moz-transition:all .5s;-webkit-transition:all .5s;-o-transition:all .5s */ }
+.buttonArea a.active{/* background-position:0 -22px */height:22px;background: #eee;}
 /* 
 .buttonCon .theButton{display:block;color:#b22222;width:20px;height:22px;background:url(../images/circlebutton.png) no-repeat;text-indent:-9999px;border:0;margin-right:3px;float:left;transition:all .5s;-moz-transition:all .5s;-webkit-transition:all .5s;-o-transition:all .5s}
 .buttonArea a.active{background-position:0 -22px} 

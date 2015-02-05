@@ -46,7 +46,7 @@ input, input::-moz-focus-inner, .weather-info-set .btn::-moz-focus-inner {
 .header a:hover{text-decoration:none !important}
 .header .mod{float:left}
 .header .layout{position:relative}
-.header .fleft{position:relative;padding-left:160px}
+.header .fleft{position:relative;padding-left:0px;margin-left: 100px;}
 .header .fleft .weather-title b,.header .fleft .sign-title b{padding:0 7px}
 .header .fleft .loading,.header .fleft .error{padding:20px 0}
 .header .fleft a,.header .fleft span{margin-right:5px}
@@ -116,7 +116,7 @@ input, input::-moz-focus-inner, .weather-info-set .btn::-moz-focus-inner {
 .header .fleft .pop-mod-sign{padding-bottom:20px}
 .header .fleft .sign-refer{position:absolute;right:10px;bottom:10px}
 .header .fleft .sign-refer a{display:inline;text-decoration:underline;padding:0 5px;color:#ce5a0d}
-.header .fright{text-align:right}
+.header .fright{text-align:right;margin-right: 100px;}
 .header .fright .mod p{overflow:hidden;border-left:1px solid #87888a;height:20px;line-height:20px;margin-top:5px;padding:0 10px}
 .header .fright .mod.last{border:0}.header .fright .mod.first p{border-left:0}.header .fright .mod p .btn-color{padding:0}
 .header .fright .btn-mod-system.on p{border-color:transparent;color:#333 !important}
@@ -159,10 +159,10 @@ input, input::-moz-focus-inner, .weather-info-set .btn::-moz-focus-inner {
 .layout {
     clear: both;
     margin: 0 auto;
-    width: 1000px;
+    /* width: 1000px; */
 }
 .header, .footer {
-    background: none repeat scroll 0 0 #676e7e;
+    background: none repeat scroll 0 0 #1b1b1b;
 }
 .header .fleft .weather-info-set .btn, .header-system .system-mod .mod-action .btn-cancel {
     color: #fff;

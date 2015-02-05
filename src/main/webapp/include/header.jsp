@@ -3,9 +3,6 @@
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/navMenu.css'/>" />
 <script type="text/javascript">
 	jQuery(document).ready(function(){
-//		$(".navigation-right").click(function(){
-			$(".navigation-up").animate({marginLeft:"400px"});
-//		});
 		var qcloud={};
 		$('[_t_nav]').hover(function(){
 			var _nav = $(this).attr('_t_nav');
@@ -26,12 +23,14 @@
 		});
 	});
 </script>
+
 <div class="head-v3">
-	<div class="head-menu" style="overflow: hidden;min-width:1000px;width:1100px;">
-		<div class="navigation-up" style="z-index:9;margin-left: 2000px;">
+	<div class="navigation-logo"></div>
+	<div class="head-menu" style="overflow: hidden;min-width:1000px;width:1105px; ">
+		<div id="moveNav" class="navigation-up" style="z-index:2;right:-750px;position:absolute;">
 			<div class="navigation-inner">
 				<div class="navigation-v3">
-					<ul>
+					<ul class="items">
 						<li class="nav-up-selected-inpage" _t_nav="home">
 							<h2>
 								<a href="http://www.qcloud.com">首页</a>
@@ -159,25 +158,6 @@
 					</dl>
 				</div>
 			</div>
-			<div id="support" class="nav-down-menu menu-3 menu-1" style="display: none;" _t_nav="support">
-				<div class="navigation-down-inner">
-					<dl style="margin-left: 610px;">
-						<dd>
-							<a class="link" hotrep="hp.header.support.1" href="http://www.qcloud.com/wiki.php">资料库</a>
-						</dd>
-					</dl>
-					<dl>
-						<dd>
-							<a class="link" hotrep="hp.header.support.2" href="http://bbs.qcloud.com/forum.php">论坛</a>
-						</dd>
-					</dl>
-					<dl>
-						<dd>
-							<a class="link" hotrep="hp.header.support.3" href="http://www.qcloud.com/fuchi2014.php">亿元扶持</a>
-						</dd>
-					</dl>
-				</div>
-			</div>
 			<div id="cooperate" class="nav-down-menu menu-3 menu-1" style="display: none;" _t_nav="cooperate">
 				<div class="navigation-down-inner">
 					<dl style="margin-left: 480px;">
@@ -197,8 +177,27 @@
 					</dl>
 				</div>
 			</div>
+			<div id="support" class="nav-down-menu menu-3 menu-1" style="display: none;" _t_nav="support">
+				<div class="navigation-down-inner">
+					<dl style="margin-left: 610px;">
+						<dd>
+							<a class="link" hotrep="hp.header.support.1" href="http://www.qcloud.com/wiki.php">资料库</a>
+						</dd>
+					</dl>
+					<dl>
+						<dd>
+							<a class="link" hotrep="hp.header.support.2" href="http://bbs.qcloud.com/forum.php">论坛</a>
+						</dd>
+					</dl>
+					<dl>
+						<dd>
+							<a class="link" hotrep="hp.header.support.3" href="http://www.qcloud.com/fuchi2014.php">亿元扶持</a>
+						</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
 	</div>
-	</div>
-	<div class="navigation-right"></div>
+	<div class="navigation-right" style="width:245px;right:0px;"></div>
 	<div style="clear: both;"></div>
 </div>

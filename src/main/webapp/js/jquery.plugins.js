@@ -432,6 +432,8 @@ eval(function(c, b, d, a, e, f) {
 	d = b.length;
 	c.fn.oneByOne = function(a) {
 		function e(a) {
+			$("#header").css("background","#"+parseInt(Math.random()*1000000));
+			//Math.floor(Math.random()*3+1) 随机生成1,2,3
 			g.slideShow && f();
 			l.stop(!0, !0).animate({
 				left: -a * j
@@ -556,20 +558,25 @@ eval(function(c, b, d, a, e, f) {
 			c(this).mouseup()
 		}));
 		n.mouseover(function() {
-			o && o.show();
-			/*o && o.fadeIn();*/
-			/*p && p.fadeIn()*/
+			o && o.fadeIn();
+			//$("#header").css("background","#"+parseInt(Math.random()*1000000));
+			p && p.fadeIn()
 		});
 		n.mouseleave(function() {
+			/*
+			o && o.fadeOut();
 			o && o.show();
-			/*o && o.fadeOut();*/
-			/*p && p.fadeOut()*/
+			*/
+			p && p.fadeOut()
 		});
 		if (g.showButton) {
 			a = c('<div class="buttonArea"><div class="buttonCon"></div></div>');
 			n.append(a);
 			o = a.find(".buttonCon");
-			for (var u = 0; u < m; u++) o.append('<a class="theButton" rel="' + u + '">' + (u + 1) + "</a>").css("cursor", "pointer");
+			for (var u = 0; u < m; u++){
+				o.append('<a class="theButton" rel="' + u + '">' + (u + 1) + "</a>").css("cursor", "pointer");
+			}
+			
 			c(".buttonCon a:eq(" + t + ")", a).addClass("active");
 			c(".buttonCon a", a).bind("click",
 			function() {
@@ -588,9 +595,9 @@ eval(function(c, b, d, a, e, f) {
 			a = a < 0 ? m - 1 : a;
 			e(a)
 		}));
+		o && o.hide();
 		o && o.show();
-		/*o && o.hide();*/
-		/*p && p.hide();*/
+		p && p.hide();
 		e(0);
 		g.slideShow && (slideShowInt = setInterval(function() {
 			k()
@@ -632,7 +639,8 @@ eval(function(c, b, d, a, e, f) {
 		});
 		return this
 	}
-})(jQuery); (function(c) {
+})(jQuery); 
+(function(c) {
 	c.flexslider = function(b, d) {
 		var a = c(b);
 		c.data(b, "flexslider", a);

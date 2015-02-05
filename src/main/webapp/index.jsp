@@ -23,6 +23,15 @@ $(document).ready(function(){
 </script>
 <style type="text/css">
 	.header{background:url(images/header/header43.jpg);}
+	#menu ul {width:1280px;list-style: none;}
+	#menu ul li {display:inline-block; padding:0px;margin:0px 25px; list-style: none;}
+	#menu ul li div{ text-align: center; }
+	#menu .i-pic {height:109px;width:120px;}
+	#menu .i-jifang {background:url(images/i-jifang.jpg) no-repeat 50% 50% transparent;}
+	#menu .i-zhuji {background:url(images/i-zhuji.jpg) no-repeat 50% 50% transparent;}
+	#menu .i-fanghuoqiang {background:url(images/i-fanghuoqiang.jpg) no-repeat 50% 50% transparent;}
+	#menu .i-ruanlianjie {background:url(images/i-ruanlianjie.jpg) no-repeat 50% 50% transparent;}
+	#menu .i-storage {background:url(images/i-storage.png) no-repeat 50% 50% transparent;}
 </style>
 </head>
 <body>
@@ -54,7 +63,32 @@ $(document).ready(function(){
 				
 			</div>
 		</div>
-		<div id="menu">This is the Menu</div>
+		<div id="menu">
+			<div>
+				<ul>
+					<li>
+						<div class="i-pic i-jifang"></div>
+						<div>服务器</div>
+					</li>
+					<li>
+						<div class="i-pic i-zhuji"></div>
+						<div>云主机</div>
+					</li>
+					<li>
+						<div class="i-pic i-fanghuoqiang"></div>
+						<div>防火墙</div>
+					</li>
+					<li>
+						<div class="i-pic i-ruanlianjie"></div>
+						<div>软链接</div>
+					</li>
+					<li>
+						<div class="i-pic i-storage"></div>
+						<div>云存储</div>
+					</li>
+				</ul>
+			</div>
+		</div>
 		<div id="mainContent">
 			<div id="moveDiv" style="width:100px;height:100px;border:1px solid black;left:600px;position:absolute"></div>
 		</div>
@@ -63,13 +97,18 @@ $(document).ready(function(){
 	
 	 
 	<script type="text/javascript">
+	var flag = 204;
 	function doMove() {
-		var _div = document.getElementById("moveDiv");
-		var _curLeft = parseInt(_div.style.left);
+		var _div = document.getElementById("moveNav");
+		var _curLeft = parseInt(_div.style.right);
 		var _distance = 5;
-		if (_curLeft - _distance > 0) {
-			_div.style.left = (_curLeft - _distance) + "px";
-			window.setTimeout("doMove()", 50);
+		if (_curLeft + _distance < flag) {
+			//alert(_curLeft + _distance);
+			//if(parseInt(_curLeft + _distance) == -50){
+			//	$("#moveNav").css("position","absolute");
+			//}
+			_div.style.right = (_curLeft + _distance) + "px";
+			window.setTimeout("doMove()", 1);
 		}
 	}
 	doMove();
